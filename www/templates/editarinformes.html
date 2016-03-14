@@ -1,0 +1,22 @@
+<ion-view style="" title="">
+<meta charset="utf-8">
+<ion-content class="has-header" padding="'true'">
+<ion-refresher
+pulling-text="Soltar para actualizar..."
+pulling-icon="ion-ios-arrow-thin-down"
+on-refresh="doRefresh()">
+</ion-refresher>
+<input ng-model="searchText.id" ng-init="searchText.id=reporteid" type="hidden">
+<!--<textarea ng-bind="formatos | json"></textarea>-->
+<div class="list "  ng-repeat="reporte in reportes | filter :searchText"> 
+	<img ng-src="{{reporte.foto}} " src="{{reporte.foto}} " height="100%" width="100%"></p>
+	<input text ng-model="reporte.comentario" ng-init="" > 
+	<p> {{reporte.fecha}}</p>
+	<input type="hidden" ng-model="formato" ng-init="formato=reporte.id">
+	<input type="hidden" ng-model="usuario" ng-init="usuario=perfil">
+	<input type="hidden" ng-model="obra" ng-init="obra=idobra">
+
+	<button class="button button-full button-positive" ng-click="editarinforme(reporteid,reporte.comentario)">Editar</button>
+</div>
+</ion-content>
+</ion-view>
