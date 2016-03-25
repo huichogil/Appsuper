@@ -1,0 +1,40 @@
+<ion-view view-title="Ubicacion de {{nomobra}}">
+  <ion-content>
+  <ion-refresher
+pulling-text="Soltar para actualizar..."
+pulling-icon="ion-ios-arrow-thin-down"
+on-refresh="doRefresh()">
+</ion-refresher>
+  
+
+<div class="list">
+  <label class="item item-input item-stacked-label">
+
+    
+  </label>
+ <!-- <button class="button icon-left button-positive" ng-click="enviarprueba(comentario)">Guardar</button> --> 
+<!-- algunos datos ocutos para los filtros-->
+<input ng-model="searchText.usuario" ng-init="searchText.usuario=usuario" type="hidden"> 
+ <input ng-model="searchText3.idobra" ng-init="searchText3.idobra=idobra" type="hidden">
+ <!--muestra conforme a filtros -->
+ <label>latitud:</label><input type="text">
+<label>longitud:</label><input type="text">
+<div class="list "  ng-repeat="plano in planos | filter: searchText3">
+<div class="item item-button-right" >
+<!--editar({{plano.idplano}})-->
+<h2> {{plano.comentario }}</h2>
+<p>tipo:{{plano.tipo}}</p>
+
+ <button class="button button-positive" href="{{planol.plano}}">
+<i class="icon ion-android-download"></i>
+</button>
+<button ng-click="archivo()">descargar 4</button>
+
+<button onclick="window.open('/pdf/{{plano.plano}}', '_system', 'location=yes'); return false;">Descargar 1</button>
+<a href="/pdf/{{plano.plano}}" class="button">Descargar</a>
+</div>
+</div>
+</div>
+</div>
+</ion-content>
+</ion-view>

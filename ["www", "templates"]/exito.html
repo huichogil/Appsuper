@@ -1,0 +1,20 @@
+
+<ion-view view-title="Exito" >
+
+  <ion-content >
+  
+    <ion-refresher
+  pulling-text="Soltar para actualizar..."
+  pulling-icon="ion-ios-arrow-thin-down"
+  on-refresh="doRefresh()">
+   </ion-refresher>
+<div align="center">
+
+
+
+<button type="button" class="button icon-left ion-refresh button-positive" ng-click="volver()">Tomar Otra</button><br><br>
+<button type="button" class="button icon-left ion-calendar button-positive" ng-click="informes()">Ver Informes</button><br><br>
+<button type="button" class="button icon-left ion-android-walk button-positive" ng-click="salir()">Ir a Obras</button><br><br>
+  </div>
+  </ion-content>
+</ion-view>

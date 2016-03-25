@@ -1,0 +1,38 @@
+<ion-view view-title="" >
+<ion-header-bar align-title="left" class="bar-light bar-subheader item-input-inset">
+<!-- Esto es para buscar con una vista bonita -->
+<div class="item-input-wrapper">
+  <i class="icon ion-ios-search placeholder-icon"></i>
+  <input type="search" placeholder="Buscar" ng-model="searchText">
+  <button class="button button-clear clear-search icon ion-ios-close-empty" ng-click="clearSearch()"></button>
+</div>
+<!-- Esto es para -->
+</ion-header-bar>
+<ion-content >
+<!-- Esto es para actualizar-->
+<ion-refresher
+pulling-text="Soltar para actualizar..."
+pulling-icon="ion-ios-arrow-thin-down"
+on-refresh="doRefresh()">
+</ion-refresher>
+<!-- Esto es para el filtro inicial-->
+<!-- Este es el id del perfil-->
+<input ng-model="searchText2.verificador" ng-init="searchText2.verificador=perfil" type="hidden"> 
+<!--<textarea ng-bind="obras | json"></textarea>-->
+<div class="item item"  type="item-text-wrap" ng-repeat="obra in obras | filter:searchText2 | filter:searchText"
+>
+
+<div ng-controller="obrasCtrl" >
+  <a class="item item-avatar" ng-click="enviame(nomobra,{{obra.idobra}})">
+   <img src="img/obras.jpg">
+   <h2>{{obra.nomobra}}</h2>
+   <input type="hidden" ng-model="nomobra" ng-init="nomobra=obra.nomobra" >
+   <p>Constructor: {{obra.constructora}}</p>
+   <p>Ubicación: {{obra.ubicacion}}</p>
+   
+ </a>
+</div>  
+</div>
+</ion-list>
+</ion-content>
+</ion-view>

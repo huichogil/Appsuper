@@ -1,0 +1,25 @@
+<ion-view view-title="{{nomobra}}">
+//nombre de la obra 
+<ion-content>
+<!--Para Actualizar la pagina -->
+<ion-refresher pulling-text="Soltar para actualizar..."
+pulling-icon="ion-ios-arrow-thin-down"
+on-refresh="doRefresh()">
+</ion-refresher>
+<!-- algunos datos ocutos para los filtros-->
+<input ng-model="searchText.usuario" ng-init="searchText.usuario=usuario" type="hidden"> 
+<input ng-model="searchText2.comentario" ng-init="searchText2.comentario=''" type="hidden"> 
+ <input ng-model="searchText3.idobra" ng-init="searchText3.idobra=idobra" type="hidden">
+ <!--muestra conforme a filtros -->
+<div class="list "  ng-repeat="reporte in reportes | filter :searchText | filter :searchText2 | filter :searchText3 | orderBy:'fecha':true">
+<a class="item item-thumbnail-left" ng-click="show({{reporte.id}})">
+<!--editar({{reporte.id}})-->
+<img ng-src="{{reporte.foto}} " src="{{reporte.foto}} " height="100%" width="100%">
+<h2> {{reporte.comentario }}</h2>
+<p>fecha: {{reporte.fecha | date: "medium"}}</p>
+</a>
+</div>
+</div>
+<!--el cierre del contenido -->
+</ion-content> 
+</ion-view>

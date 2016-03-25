@@ -1,0 +1,28 @@
+<ion-view view-title="{{nomobra}}">
+<ion-content>
+<!--Para Actualizar la pagina -->
+<ion-refresher pulling-text="Soltar para actualizar..."
+pulling-icon="ion-ios-arrow-thin-down"
+on-refresh="doRefresh()">
+</ion-refresher>
+<!-- algunos datos ocutos para los filtros-->
+<!--
+<input ng-model="searchText2.comentario" ng-init="searchText2.comentario=''" type="hidden">
+ --> 
+ <input ng-model="searchText3.obra" ng-init="searchText3.obra=idobra" type="hidden">
+<input ng-model="searchText.usuario" ng-init="searchText.usuario=perfil" type="hidden"> 
+ <!--muestra conforme a filtros -->
+<div class="list "  ng-repeat="reportef in reportesformato  | filter:searchText3 | orderBy:'fecha':true  ">
+<div class="item item-text-wrap">
+<a ng-click="editarformato(reportef.idregistro,reportef.obs)">
+<i class="icon ion-clipboard"></i>
+<h3>{{reportef.nomformato}}</h3>
+
+<p>fecha{{reportef.fecha}}</p>
+ 
+ </a>
+</div>
+</div>
+<!--el cierre del contenido -->
+</ion-content> 
+</ion-view>

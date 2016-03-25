@@ -1,0 +1,34 @@
+<ion-view view-title="{{nomobra}}">
+<ion-content class="has-header" padding="'true'">
+<!--Para Actualizar-->
+<ion-refresher
+pulling-text="Soltar para actualizar..."
+pulling-icon="ion-ios-arrow-thin-down"
+on-refresh="doRefresh()">
+</ion-refresher>
+<!---->  
+<ion-list style="">
+<label>Buscar: <input ng-model="searchText"></label>
+<!--Para buscar por id de la obra-->
+<input  ng-model="searchTextobras.idobra" ng-init="searchTextobras.idobra=idobra" type="hidden">
+
+<!--Para enviar al controlador desde el boton-->
+<ion-item ng-controller="formatosCtrl" ng-click="enviareporte({{idobra}})"  menu-close="" > <i class="ion-android-camera">    
+</i> Reporte Fotografico</ion-item>
+<div class="list "  ng-repeat="obra in obras | filter :searchTextobras"> 
+  <!--Para enviar al controlador desde el boton-->
+  <ion-item ng-controller="formatosCtrl"  ng-repeat="formato in formatos | filter:searchText "  ng-click="enviame({{formato.id}},datos)" ><i class="ion-drag"></i>
+  {{formato.nombreformato}}
+<input  ng-model="tipo" ng-init="tipo=formato.tipo" type="hidden">
+ <span ng-if="tipo==1" class="badge badge-info" >Free</span>
+
+<span ng-if="tipo==2" class="badge badge-assertive" ng-disabled="tipo">de Pago</span>
+
+  <input  ng-model="datos" ng-init="datos=formato.conceptos" type="hidden">
+  <ion-option-button class="button-assertive" ng-click="remove(formato)">
+  <i class="icon ion-chevron-right icon-accessory"></i> 
+</ion-option-button>
+</ion-item>
+</ion-list>
+</ion-content>
+</ion-view>

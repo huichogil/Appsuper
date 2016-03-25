@@ -1,0 +1,32 @@
+<ion-view style="" title="{{nomobra}}">
+<meta charset="utf-8">
+<ion-content class="has-header" padding="'true'">
+<ion-refresher
+pulling-text="Soltar para actualizar..."
+pulling-icon="ion-ios-arrow-thin-down"
+on-refresh="doRefresh()">
+</ion-refresher>
+<input ng-model="searchText.idregistro" ng-init="searchText.idregistro=formatoid" type="hidden">
+<!--<textarea ng-bind="formatos | json"></textarea>-->
+
+<div class="list "  ng-repeat="reportel in reportesformato | filter :searchText"> 
+	<h2>{{reportel.nomformato}}</h2>
+	<p>fecha: {{reportel.fecha}}</p>
+	<!--<textarea ng-bind="reportesformato | json"></textarea>-->
+	<ion-checkbox ng-repeat="item in formatoscheck"
+ng-model="item.checked" 
+ng-checked="item.checked">
+{{ item.text }}
+</ion-checkbox>
+
+
+
+
+	<input type="hidden" ng-model="formato" ng-init="formato=reporte.id">
+	<input type="hidden" ng-model="usuario" ng-init="usuario=perfil">
+	<input type="hidden" ng-model="obra" ng-init="obra=idobra">
+
+	<button class="button button-full button-positive" ng-click="editarinforme(formatoid)">Editar</button>
+</div>
+</ion-content>
+</ion-view>

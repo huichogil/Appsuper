@@ -1,0 +1,75 @@
+<ion-view style="" title="{{nomobra}}">
+<ion-content class="has-header" padding="'true'">
+<!--
+<textarea ng-bind=" reportessinc | json "></textarea>
+-->
+<input ng-model="searchText.idobra" ng-init="searchText.idobra=idobra" type="hidden">
+<ion-list style="">
+<div class="list card">
+  <div class="item item-divider">Prueba camara</div>
+  <div class="item item-body">
+    <div >
+<!--
+<img ng-src="{{srcImage || 'img/foto.jpg'}}" id="srcImage" width="150 " height="150" style="display: block; margin: 0 auto;"/>
+       -->
+<div align="center">
+
+<img id="imagen" src="img/foto.jpg" height="50" width="50" >
+</div>
+<br/>
+<button class="button button-full button-positive " ng-click="takeImage() "> <i class="ion-ios-camera"></i> Tomar Foto</button><br/>
+    </div>
+  </div>
+</div>
+<div class="list card">
+  <div class="item item-divider">Comentario</div>
+  <div class="item item-body">
+    <div>
+     <input type="text" ng-model="comentario" placeholder="escribe un comentario">
+   </div>
+ </div>
+</div>
+<div class="list card">
+  <div class="item item-divider">Abierto</div>
+  <div class="item item-body">
+    <ion-list>
+    <ion-radio ng-model="activo" ng-value="'1'" >Abierto</ion-radio>
+    <ion-radio ng-model="activo" ng-value="'2'">Cerrado</ion-radio>
+  </ion-list>
+</label>
+</div>
+<input type="text" ng-model="fecha" >
+<div class="item item-divider">  Etiqueta</div>
+<div class="list">
+  <label class="item item-input item-select">
+    <div class="input-label">
+      Etiqueta
+    </div>
+    <select ng-model="etiqueta">
+      <option selected>Ninguna</option>
+      <option ng-model="etiqueta" ng-value="1">1</option>
+      <option ng-model="etiqueta" ng-value="2">2</option>
+      <option ng-model="etiqueta" ng-value="3">3</option>
+      <option ng-model="etiqueta" ng-value="4">4</option>
+      <option ng-model="etiqueta" ng-value="5">5</option>
+      <option ng-model="etiqueta" ng-value="6">6</option>
+    </select>
+  </label>
+</div>
+</label>
+</div>
+</div>
+</div>
+<div class="list card">
+  <div class="item item-divider"></div>
+  <div class="item item-body">
+    <div>
+      <button class="button icon-left ion-star button-positive" ng-click="enviarfoto(comentario,activo,{{idobra}},etiqueta)">Guardar</button> 
+    </div>
+  </div>
+
+</div>
+
+</ion-list>
+</ion-content>
+</ion-view>

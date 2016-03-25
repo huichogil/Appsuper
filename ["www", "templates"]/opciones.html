@@ -1,0 +1,21 @@
+
+<ion-view view-title="{{nomobra}}">
+<ion-content>
+
+ 
+<div ng-controller="opcionesCtrl">
+
+<ion-list style="">            
+<input ng-model="searchText.idobra" ng-init="searchText.idobra=idobra" type="hidden">
+<!--<input ng-model="searchText2.nomobra" ng-init="searchText2.nomobra=nomobra" type="hidden">
+<div class="list"  ng-repeat="obra in obras | filter :searchText.idobra">
+ -->     
+<ion-item style="" ng-click="enviaformatos({{idobra}})" menu-close=""><i class="ion-android-list"></i>  Formatos</ion-item>           
+<ion-item style="" ng-click="enviaindividual({{idobra}})"  menu-close=""><i class="ion-images"></i>  Informes Fotograficos</ion-item>
+<ion-item style="" ng-click="reporteformatosbtn({{idobra}})"  menu-close=""><i class="ion-android-folder-open"></i>  Informes de Formatos</ion-item>
+<ion-item style="" ng-click="enviapruebas({{idobra}})" menu-close=""><i class="ion-android-list"></i>  Planos</ion-item>
+<ion-item style="" ng-click="enviagps({{idobra}})" menu-close=""><i class="ion-android-pin"></i>  Gps</ion-item>
+</div>     
+</ion-list>
+</ion-content> 
+</ion-view>
